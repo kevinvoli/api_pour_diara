@@ -10,13 +10,6 @@ let convocation =  require('../schema/usersSchema').SchemaConvocation;
 let parent =  require('../schema/usersSchema').SchemaParent;
 let directeur =  require('../schema/usersSchema').SchemaDirecteur;
 
-
-// eleve.plugin(relationship,{relationshipPathName:['Classe','Parent']})
-// releve.plugin(relationship,{relationshipPathName:'Eleve'})
-// sante.plugin(relationship,{relationshipPathName:['Eleve','Maitre']})
-// cahierAppel.plugin(relationship,{relationshipPathName:'Eleve'})
-// convocation.plugin(relationship,{relationshipPathName:['Parent','Directeur']})
-
 exports.CahierAppel= mongoose.model('Cahier_Appel',cahierAppel);
 exports.Eleve = mongoose.model('Eleve',eleve);
 exports.Maitre = mongoose.model('Maitre',maitre);
