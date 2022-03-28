@@ -8,8 +8,9 @@ var logger = require('morgan');
 var indexRouter = require('./routes/classeRouter');
 var usersRouter = require('./routes/users');
 let eleveRouter = require('./routes/eleveRouter')
+let page404 = require('./routes/page404')
+let noteRouter = require('./routes/noteRouter')
 const mongoose = require('mongoose');
-// relationship = require('mongoose-relationship')
 mongoose.connect('mongodb://localhost:27017/diara_db')
 
 var app = express();
@@ -23,8 +24,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use('/classe', indexRouter);
 app.use('/eleve', eleveRouter);
+app.use('/note',noteRouter)
+app.use('*',page404);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
